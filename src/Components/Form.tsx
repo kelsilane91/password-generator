@@ -45,7 +45,7 @@ export const Form = () => {
     <div style={{ textAlign: "center" }}>
       <TextField
         id="outlined-number"
-        label="PasswordLength"
+        label="Password Length"
         type="number"
         InputLabelProps={{
           shrink: true,
