@@ -36,7 +36,9 @@ export const Form = () => {
     return (
       <div>
         <h1>{password}</h1>
-        <Button onClick={copyToClipboard}>Copy to Clipboard</Button>
+        {password ? (
+          <Button onClick={copyToClipboard}>Copy to Clipboard</Button>
+        ) : null}
       </div>
     );
   };
