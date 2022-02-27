@@ -28,9 +28,15 @@ const getRandomSymbol = () => {
   return symbolList[index];
 };
 
+// get random number 0 - 9
+const getRandomNumber = () => {
+  return Math.floor(Math.random() * 9);
+};
+
 // object with all available functions
 const functionList = {
   lowercase: getRandomLowerLetter,
   uppercase: getRandomUpperLetter,
   symbol: getRandomSymbol,
+  number: getRandomNumber,
 };
