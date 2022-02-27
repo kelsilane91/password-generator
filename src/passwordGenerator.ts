@@ -2,12 +2,12 @@
 
 export const passwordGenerator = (passwordLength: number) => {
   let password = "";
-  let passArray = [];
+  const keys = Object.keys(functionList);
   for (let i = 0; i <= passwordLength; i++) {
-    let lower = getRandomLowerLetter();
-    passArray.push(lower);
+    const randomizer = Math.floor(Math.random() * keys.length);
+    const name = Object.values(functionList)[randomizer]();
+    password += name;
   }
-  password = passArray.join("");
   return password;
 };
 
@@ -26,4 +26,11 @@ const getRandomSymbol = () => {
   const symbolList = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")"];
   const index = Math.floor(Math.random() * symbolList.length);
   return symbolList[index];
+};
+
+// object with all available functions
+const functionList = {
+  lowercase: getRandomLowerLetter,
+  uppercase: getRandomUpperLetter,
+  symbol: getRandomSymbol,
 };
