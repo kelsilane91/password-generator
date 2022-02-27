@@ -19,12 +19,33 @@ export const Form = () => {
     setPassword("");
   };
 
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(password);
+  };
+
+  const ButtonRow = () => {
+    return (
+      <div>
+        <Button onClick={handleSubmit}>Submit</Button>
+        <Button onClick={handleReset}>Reset</Button>
+      </div>
+    );
+  };
+
+  const Password = () => {
+    return (
+      <div>
+        <h1>{password}</h1>
+        <Button onClick={copyToClipboard}>Copy to Clipboard</Button>
+      </div>
+    );
+  };
+
   return (
-    <Paper>
-      <h1>{password}</h1>
+    <div style={{ textAlign: "center" }}>
       <TextField
         id="outlined-number"
-        label="Number"
+        label="PasswordLength"
         type="number"
         InputLabelProps={{
           shrink: true,
@@ -33,8 +54,8 @@ export const Form = () => {
         onChange={handleLengthChange}
         value={passwordLength}
       />
-      <Button onClick={handleSubmit}>Submit</Button>
-      <Button onClick={handleReset}>Reset</Button>
-    </Paper>
+      <ButtonRow></ButtonRow>
+      <Password></Password>
+    </div>
   );
 };
