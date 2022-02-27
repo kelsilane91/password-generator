@@ -3,7 +3,7 @@
 export const passwordGenerator = (passwordLength: number) => {
   let password = "";
   const keys = Object.keys(functionList);
-  for (let i = 0; i <= passwordLength; i++) {
+  for (let i = 0; i < passwordLength; i++) {
     const randomizer = Math.floor(Math.random() * keys.length);
     const name = Object.values(functionList)[randomizer]();
     password += name;
